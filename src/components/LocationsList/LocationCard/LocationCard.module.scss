@@ -1,0 +1,15 @@
+a {
+    text-decoration: none;
+
+    .wrapper {
+        color: black;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 25px;
+        border: 1px solid #DFDFDF;
+        border-radius: 15px;
+        cursor: pointer;
+    }
+}

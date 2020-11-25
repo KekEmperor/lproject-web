@@ -1,0 +1,10 @@
+.wrapper {
+    width: 60%;
+    margin: 0 auto;
+
+    .pieWrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
