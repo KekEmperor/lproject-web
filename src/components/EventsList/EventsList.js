@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import Cookies from 'js-cookie';
 import styles from './EventsList.module.scss';
 import dateformat from 'dateformat';
 
