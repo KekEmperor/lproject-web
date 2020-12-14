@@ -24,6 +24,7 @@ function LocationPage(props) {
             const location = await retrieveLocation(locationId);
             const averageTime = await retrieveAverageTime(eventId);
             const ages = await retrieveAges(eventId);
+            console.log(ages)
             const genders = await retrieveGenders(eventId);
             const timeline = await retrieveTimeline(eventId);
             const event = await retrieveEvent(eventId);
@@ -47,13 +48,14 @@ function LocationPage(props) {
         if (new Date(event.startDate).valueOf() < Date.now()) {
             return (
                 <div>
+                    <Menu />
                     <div className={styles.wrapper}>
                         <h2>Назва локації: {location.name}</h2>
                         <div className={styles.avTime}>
                             <p>Середній час, проведений на локації: {Math.ceil(averageTime / 60) + " хвилин " + averageTime % 60 + " секунд"}</p>
                         </div>
                         <div className={styles.pieWrapper}>
-                            <AgeChart under30={ages['under30']} from30to50={ages['from30to50']} from50={ages['from50']} />
+                            <AgeChart under30={ages['under30']} from30to50={ages['from30to50']} over50={ages['over50']} />
                             <GenderChart women={genders['womenPercent']} men={genders['menPercent']} />
                         </div>
                         <TimeSeriesChart timeline={timeline} />
@@ -63,7 +65,8 @@ function LocationPage(props) {
         }
         else {
             return (
-                <div>
+                <div className={styles.missing}>
+                    <Menu />
                     <h3>Захід ще не почався, тому статистику переглянути не можна. Будь ласка, відкрийте інший захід.</h3>
                 </div>
             )

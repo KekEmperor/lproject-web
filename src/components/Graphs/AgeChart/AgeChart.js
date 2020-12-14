@@ -3,11 +3,11 @@ import { PieChart, Pie, Cell, Legend, Tooltip } from 'recharts'
 
 import styles from './AgeChart.module.scss'
 
-function AgeChart({ under30, from30to50, from50 }) {
+function AgeChart({ under30, from30to50, over50 }) {
     const data = [
         { name: "Percent of people under 30 years", value: under30 },
         { name: "Percent of people from 30 to 50 years", value: from30to50 },
-        { name: "Percent of people from 50 years", value: from50 }
+        { name: "Percent of people from 50 years", value: over50 }
     ]
 
     const COLORS = ['#C70039', '#FFC300', '#FF5733']

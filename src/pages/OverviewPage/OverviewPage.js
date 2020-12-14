@@ -6,14 +6,16 @@ import styles from './OverviewPage.module.scss';
 
 import EventsList from '../../components/EventsList/EventsList.js'
 import { retrieveEvents } from '../../dataHelpers/retrieveEvents';
+import Menu from '../../components/Menu/Menu.js'
 
 function OverviewPage() {
     return (
         <div>
+            <Menu />
             <div className={styles.wrapper}>
-                <h2>Оберіть захід зі списку доданих:</h2>
+                <h2>Оберіть захід зі списку доданих</h2>
                 <EventsList />
-                <h4>або додайте новий</h4>
+                <h4>або <a href="/addEvent">додайте новий</a></h4>
             </div>
         </div>
     );

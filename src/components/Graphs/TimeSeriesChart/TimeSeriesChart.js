@@ -12,7 +12,6 @@ function TimeSeriesChart({ timeline }) {
                 <ScatterChart data={timeline}>
                     <CartesianGrid />
                     <XAxis dataKey="time" type="number" domain={['auto', 'auto']} tickFormatter={(unixTime) => moment(unixTime).format('HH:mm DD.MM')} />
-                    <Tooltip separator=": " />
                     <Scatter type="monotone" dataKey="amount" line={{ stroke: '#FF0F0F' }} lineType='joint' />
                     <YAxis allowDecimals={false} />
                 </ScatterChart>
