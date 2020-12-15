@@ -1,13 +1,16 @@
 import React from 'react'
 import { ResponsiveContainer, Scatter, ScatterChart, XAxis, CartesianGrid, Tooltip, YAxis } from 'recharts'
 import moment from 'moment'
+import { useTranslation } from 'react-i18next'
 
 import styles from './TimeSeriesChart.module.scss'
 
 function TimeSeriesChart({ timeline }) {
+    const [t, i18n] = useTranslation();
+
     return (
         <div className={styles.wrapper}>
-            <p>Розподіл відвідувачів локації у часі</p>
+            <p>{t('Розподіл відвідувачів локації у часі')}</p>
             <ResponsiveContainer width='95%' height={350} >
                 <ScatterChart data={timeline}>
                     <CartesianGrid />

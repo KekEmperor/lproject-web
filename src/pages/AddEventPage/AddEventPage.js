@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Cookies from 'js-cookie'
+import { useTranslation } from 'react-i18next';
 
 import styles from './AddEventPage.module.scss'
 
@@ -7,6 +8,8 @@ import Menu from '../../components/Menu/Menu.js'
 import { Redirect } from 'react-router-dom';
 
 function AddEventPage() {
+    const [t, i18n] = useTranslation();
+
     const [name, setName] = useState('');
     const [startDate, setStartDate] = useState('');
     const [startTime, setStartTime] = useState('');
@@ -46,14 +49,14 @@ function AddEventPage() {
                 })
             }).then(res => res.json()).then(data => {
                 if (data.name) {
-                    alert("Подію додано!")
+                    alert(t("Подію додано!"))
                     setRedirect(true);
                 }
             })
         }
         else
         {
-            alert('Встановіть, будь ласка, коректний час у майбутньому!')
+            alert(t('Встановіть, будь ласка, коректний час у майбутньому!'))
         }
     }
 
@@ -61,50 +64,50 @@ function AddEventPage() {
         <div>
             <Menu />
             <div className={styles.wrapper}>
-                <h2>Додавання нового заходу</h2>
+                <h2>{t('Додавання нового заходу')}</h2>
                 <form onSubmit={submit}>
                     <div className={styles.fieldWrapper}>
-                        <label>Назва заходу</label>
+                        <label>{t("Назва заходу")}</label>
                         <input type="text" name="eventName" placeholder="Party" required onChange={(e) => setName(e.target.value)} />
                     </div>
                     <div className={styles.fieldWrapper}>
-                        <label>Дата початку заходу</label>
+                        <label>{t('Дата початку заходу')}</label>
                         <input type="date" name="startDate" required onChange={(e) => setStartDate(e.target.value)} />
                     </div>
                     <div className={styles.fieldWrapper}>
-                        <label>Час початку заходу</label>
+                        <label>{t('Час початку заходу')}</label>
                         <input type="time" name="startTime" required onChange={(e) => setStartTime(e.target.value)} />
                     </div>
                     <div className={styles.fieldWrapper}>
-                        <label>Дата закінчення заходу</label>
+                        <label>{t('Дата закінчення заходу')}</label>
                         <input type="date" name="finishDate" required onChange={(e) => setFinishDate(e.target.value)} />
                     </div>
                     <div className={styles.fieldWrapper}>
-                        <label>Час закінчення заходу</label>
+                        <label>{t('Час закінчення заходу')}</label>
                         <input type="time" name="finishTime" required onChange={(e) => setFinishTime(e.target.value)} />
                     </div>
                     <div className={styles.fieldWrapper}>
-                        <label>Країна проведення</label>
+                        <label>{t('Країна проведення')}</label>
                         <input type="text" name="country" placeholder="Україна" required onChange={(e) => setCountry(e.target.value)} />
                     </div>
                     <div className={styles.fieldWrapper}>
-                        <label>Місто проведення</label>
+                        <label>{t('Місто проведення')}</label>
                         <input type="text" name="city" placeholder="Харків" required onChange={(e) => setCity(e.target.value)} />
                     </div>
                     <div className={styles.fieldWrapper}>
-                        <label>Адреса проведення</label>
+                        <label>{t('Адреса проведення')}</label>
                         <input type="text" name="address" placeholder="проспект Московський, 202" required onChange={(e) => setAddress(e.target.value)} />
                     </div>
                     <div className={styles.fieldWrapper}>
-                        <label>Місце проведення</label>
+                        <label>{t('Місце проведення')}</label>
                         <input type="text" name="place" placeholder="ТРЦ 'Sun City'" required onChange={(e) => setPlace(e.target.value)} />
                     </div>
                     <div className={styles.fieldWrapper}>
-                        <label>Опис</label>
+                        <label>{t('Опис')}</label>
                         <input type="text" name="description" onChange={(e) => setDesc(e.target.value)} />
                     </div>
                     <div className={styles.fieldWrapper}>
-                        <input type="submit" value="Надіслати" />
+                        <input type="submit" value={t("Надіслати")} />
                     </div>
                 </form>
             </div>

@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import './i18n'
 
 import LoginPage from './pages/LoginPage/LoginPage.js'
 import OverviewPage from './pages/OverviewPage/OverviewPage.js'
@@ -13,6 +14,11 @@ import AddLocationPage from './pages/AddLocationPage/AddLocationPage';
 import AdminLoginPage from './pages/AdminLoginPage/AdminLoginPage.js'
 import AdminMainPage from './pages/AdminMainPage/AdminMainPage';
 import AdminEventsPage from './pages/AdminEventsPage/AdminEventsPage'
+import AdminEditEventPage from './pages/AdminEditEventPage/AdminEditEventPage';
+import AdminOrganizersPage from './pages/AdminOrganizersPage/AdminOrganizersPage';
+import AdminEditOrganizerPage from './pages/AdminEditOrganizerPage/AdminEditOrganizerPage';
+import AdminVisitorsPage from './pages/AdminVisitorsPage/AdminVisitorsPage';
+import AdminEditVisitorPage from './pages/AdminEditVisitorPage/AdminEditVisitorPage';
 
 function App() {
   return (
@@ -31,6 +37,11 @@ function App() {
             <Route path='/admin/login' component={AdminLoginPage} />
             <Route exact path='/admin' component={AdminMainPage} />
             <Route path='/admin/events' component={AdminEventsPage} />
+            <Route exact path="/admin/event/:id/edit" component={AdminEditEventPage} />
+            <Route path='/admin/organizers' component={AdminOrganizersPage} />
+            <Route path='/admin/organizer/:id/edit' component={AdminEditOrganizerPage} />
+            <Route path='/admin/visitors' component={AdminVisitorsPage} />
+            <Route path='/admin/visitor/:id/edit' component={AdminEditVisitorPage} />
           </Switch>
         </div>
         :
@@ -41,6 +52,11 @@ function App() {
           <Route path='/admin/login' component={AdminLoginPage} />
           <Route exact path='/admin' component={AdminMainPage} />
           <Route path='/admin/events' component={AdminEventsPage} />
+          <Route exact path="/admin/event/:id/edit" component={AdminEditEventPage} />
+          <Route path='/admin/organizers' component={AdminOrganizersPage} />
+          <Route path='/admin/organizer/:id/edit' component={AdminEditOrganizerPage} />
+          <Route path='/admin/visitors' component={AdminVisitorsPage} />
+          <Route path='/admin/visitor/:id/edit' component={AdminEditVisitorPage} />
         </Switch>
       }
     </div>

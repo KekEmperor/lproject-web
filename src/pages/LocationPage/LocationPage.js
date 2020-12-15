@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { retrieveLocation, retrieveEvent } from '../../dataHelpers/retrieveEvent.js';
 import { retrieveAges, retrieveGenders, retrieveTimeline, retrieveAverageTime } from '../../dataHelpers/retrieveStats.js';
 import styles from './LocationPage.module.scss'
+import { useTranslation } from 'react-i18next'
 
 import AgeChart from '../../components/Graphs/AgeChart/AgeChart.js'
 import GenderChart from '../../components/Graphs/GenderChart/GenderChart.js'
@@ -9,6 +10,7 @@ import TimeSeriesChart from '../../components/Graphs/TimeSeriesChart/TimeSeriesC
 import Menu from '../../components/Menu/Menu.js'
 
 function LocationPage(props) {
+    const [t, i18n] = useTranslation();
     const [ages, setAges] = useState('');
     const [averageTime, setTime] = useState('');
     const [genders, setGenders] = useState('');
@@ -50,9 +52,9 @@ function LocationPage(props) {
                 <div>
                     <Menu />
                     <div className={styles.wrapper}>
-                        <h2>Назва локації: {location.name}</h2>
+                        <h2>{t('Назва локації')}: {location.name}</h2>
                         <div className={styles.avTime}>
-                            <p>Середній час, проведений на локації: {Math.ceil(averageTime / 60) + " хвилин " + averageTime % 60 + " секунд"}</p>
+                            <p>{t('Середній час, проведений на локації')}: {Math.ceil(averageTime / 60) + t(" хвилин ") + averageTime % 60 + t(" секунд")}</p>
                         </div>
                         <div className={styles.pieWrapper}>
                             <AgeChart under30={ages['under30']} from30to50={ages['from30to50']} over50={ages['over50']} />
@@ -67,7 +69,7 @@ function LocationPage(props) {
             return (
                 <div className={styles.missing}>
                     <Menu />
-                    <h3>Захід ще не почався, тому статистику переглянути не можна. Будь ласка, відкрийте інший захід.</h3>
+                    <h3>{t('Захід ще не почався, тому статистику переглянути не можна. Будь ласка, відкрийте інший захід.')}</h3>
                 </div>
             )
         }

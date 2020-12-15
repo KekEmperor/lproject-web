@@ -9,6 +9,8 @@ export const retrieveEvents = async () => {
         }
     })
 
+    console.log(res)
+
     return res.json();
 }
 
