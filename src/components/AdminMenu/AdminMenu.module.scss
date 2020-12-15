@@ -1,0 +1,22 @@
+.wrapper {
+    background-color: #dac586;
+    width: 70%;
+    height: 50px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    border-radius: 0 0 15px 15px;
+
+    div {
+        cursor: pointer;
+        font-size: 20px;
+
+        a {
+            color: black;
+        }
+    }
+}

@@ -13,7 +13,7 @@ const EventsList = () => {
         async function fetch() {
             const events = await retrieveEvents();
 
-            setEvents(events);
+            setEvents(events.sort((a, b) => new Date(a.startDate).valueOf() - new Date(b.startDate).valueOf()));
             setLoading(false);
         }
 

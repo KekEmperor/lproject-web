@@ -1,11 +1,7 @@
 import React, { Suspense, useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import Cookies from 'js-cookie';
 import styles from './OverviewPage.module.scss';
 
 import EventsList from '../../components/EventsList/EventsList.js'
-import { retrieveEvents } from '../../dataHelpers/retrieveEvents';
 import Menu from '../../components/Menu/Menu.js'
 
 function OverviewPage() {

@@ -30,22 +30,42 @@ function ReviewPage(props) {
     if (loading) {
         return <div></div>
     }
-    return (
-        <div>
-            <Menu />
-            <div className={styles.wrapper}>
-                <p className={styles.name}>Назва заходу: {event.name}</p>
-                <p>Час проведення: {dateformat(event.startDate, 'dd.mm.yyyy HH:MM')} - {dateformat(event.finishDate, 'dd.mm.yyyy HH:MM')}</p>
-                <p>Місце проведення: {event.locationCountry + ", " + event.locationCity + ", " + event.locationAddress + " (" + event.locationPlace + ")"}</p>
-                <div className={styles.counter}>
-                    <p>Загалом відвідувачів на всіх локаціях: {counter}</p>
+
+    if (Date.now() < new Date(event.startDate).valueOf()) {
+        return (
+            <div>
+                <Menu />
+                <div className={styles.wrapper}>
+                    <p className={styles.name}>Назва заходу: {event.name}</p>
+                    <p>Час проведення: {dateformat(event.startDate, 'dd.mm.yyyy HH:MM')} - {dateformat(event.finishDate, 'dd.mm.yyyy HH:MM')}</p>
+                    <p>Місце проведення: {event.locationCountry + ", " + event.locationCity + ", " + event.locationAddress + " (" + event.locationPlace + ")"}</p>
+                    <div className={styles.counter}>
+                        <p>Загалом відвідувачів на всіх локаціях: {counter}</p>
+                    </div>
+                    <h4>Перегляньте статистику за локаціями</h4>
+                    <LocationsList eventId={eventId} />
+                    <h4>або <a href={"/review/" + eventId + "/addLocation"}>додайте нову</a></h4>
                 </div>
-                <h4>Перегляньте статистику за локаціями</h4>
-                <LocationsList eventId={eventId} />
-                <h4>або <a href={"/review/" + eventId + "/addLocation"}>додайте нову</a></h4>
             </div>
-        </div>
-    )
+        )
+    }
+    else {
+        return (
+            <div>
+                <Menu />
+                <div className={styles.wrapper}>
+                    <p className={styles.name}>Назва заходу: {event.name}</p>
+                    <p>Час проведення: {dateformat(event.startDate, 'dd.mm.yyyy HH:MM')} - {dateformat(event.finishDate, 'dd.mm.yyyy HH:MM')}</p>
+                    <p>Місце проведення: {event.locationCountry + ", " + event.locationCity + ", " + event.locationAddress + " (" + event.locationPlace + ")"}</p>
+                    <div className={styles.counter}>
+                        <p>Загалом відвідувачів на всіх локаціях: {counter}</p>
+                    </div>
+                    <h4>Перегляньте статистику за локаціями</h4>
+                    <LocationsList eventId={eventId} />
+                </div>
+            </div>
+        )
+    }
 }
 
 export default ReviewPage;

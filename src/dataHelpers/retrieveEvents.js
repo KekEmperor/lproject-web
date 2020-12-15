@@ -11,3 +11,15 @@ export const retrieveEvents = async () => {
 
     return res.json();
 }
+
+export const retrieveAllEvents = async () => {
+    const res = await fetch("http://localhost:30030/event", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "x-auth-token": Cookies.get('token')
+        }
+    })
+
+    return res.json();
+}

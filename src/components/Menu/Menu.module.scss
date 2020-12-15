@@ -1,5 +1,5 @@
 .wrapper {
-    background-color: beige;
+    background-color:#dac586;
     width: 70%;
     height: 50px;
     margin: 0 auto;
@@ -19,7 +19,11 @@
         div {
             cursor: pointer;
             font-size: 20px;
-            margin-right: 30px; 
+            margin-right: 30px;
+
+            a {
+                color: black;
+            }
         }
     }
 
@@ -32,7 +36,11 @@
         div {
             cursor: pointer;
             font-size: 20px;
-            margin-left: 30px; 
+            margin-left: 30px;
+
+            a {
+                color: black;
+            }
         }
     }
 }

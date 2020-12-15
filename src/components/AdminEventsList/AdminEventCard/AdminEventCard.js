@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './EventCard.module.scss';
+import styles from './AdminEventCard.module.scss';
 
-function EventCard({ eventId, name, startDate, finishDate, locationCity, locationCountry }) {
+function AdminEventCard({ eventId, name, startDate, finishDate, locationCity, locationCountry }) {
     return (
         <div>
             <a href={'/review/' + eventId}>
@@ -15,4 +15,4 @@ function EventCard({ eventId, name, startDate, finishDate, locationCity, locatio
     );
 }
 
-export default EventCard;
+export default AdminEventCard;
