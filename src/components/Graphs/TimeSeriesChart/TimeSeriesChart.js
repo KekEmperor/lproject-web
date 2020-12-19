@@ -1,5 +1,5 @@
 import React from 'react'
-import { ResponsiveContainer, Scatter, ScatterChart, XAxis, CartesianGrid, Tooltip, YAxis } from 'recharts'
+import { ResponsiveContainer, Scatter, ScatterChart, XAxis, CartesianGrid, YAxis } from 'recharts'
 import moment from 'moment'
 import { useTranslation } from 'react-i18next'
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './EventsList.module.scss';
 import dateformat from 'dateformat';
+import { useTranslation } from 'react-i18next'
 
 import EventCard from './EventCard/EventCard.js'
 import { retrieveEvents } from '../../dataHelpers/retrieveEvents';
@@ -8,6 +9,7 @@ import { retrieveEvents } from '../../dataHelpers/retrieveEvents';
 const EventsList = () => {
     const [events, setEvents] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [t, i18n] = useTranslation();
 
     useEffect(() => {
         async function fetch() {
@@ -27,7 +29,7 @@ const EventsList = () => {
     return (
         <div className={styles.wrapper}>
             {events.map(({ _id, name, startDate, finishDate, locationCountry, locationCity }) =>
-                (<EventCard eventId={_id} name={name} startDate={dateformat(startDate, "dd.mm.yyyy")} finishDate={dateformat(finishDate, "dd.mm.yyyy")} locationCity={locationCity} locationCountry={locationCountry} />))}
+                (<EventCard eventId={_id} name={name} startDate={dateformat(startDate, t("dd.mm.yyyy"))} finishDate={dateformat(finishDate, t("dd.mm.yyyy"))} locationCity={locationCity} locationCountry={locationCountry} />))}
         </div>
     );
 }

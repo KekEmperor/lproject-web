@@ -9,7 +9,7 @@ import LocationsList from '../../components/LocationsList/LocationsList.js'
 import Menu from '../../components/Menu/Menu.js'
 
 function ReviewPage(props) {
-    const [t, i18n] = useTranslation(); 
+    const [t, i18n] = useTranslation();
     const [event, setEvent] = useState('');
     const [locations, setLocations] = useState('');
     const [counter, setCounter] = useState('');
@@ -33,41 +33,23 @@ function ReviewPage(props) {
         return <div></div>
     }
 
-    if (Date.now() < new Date(event.startDate).valueOf()) {
-        return (
-            <div>
-                <Menu />
-                <div className={styles.wrapper}>
-                    <p className={styles.name}>{t('Назва заходу')}: {event.name}</p>
-                    <p>{t('Час проведення')}: {dateformat(event.startDate, 'dd.mm.yyyy HH:MM')} - {dateformat(event.finishDate, 'dd.mm.yyyy HH:MM')}</p>
-                    <p>{t('Місце проведення')}: {event.locationCountry + ", " + event.locationCity + ", " + event.locationAddress + " (" + event.locationPlace + ")"}</p>
-                    <div className={styles.counter}>
-                        <p>{t('Загалом відвідувачів на всіх локаціях')}: {counter}</p>
-                    </div>
-                    <h4>{t('Перегляньте статистику за локаціями')}</h4>
-                    <LocationsList eventId={eventId} />
-                    <h4>{t('або')} <a href={"/review/" + eventId + "/addLocation"}>{t('додайте нову локацію')}</a></h4>
-                </div>
-            </div>
-        )
-    }
-    else {
-        return (
-            <div>
-                <Menu />
-                <div className={styles.wrapper}>
+    return (
+        <div>
+            <Menu />
+            <div className={styles.wrapper}>
                 <p className={styles.name}>{t('Назва заходу')}: {event.name}</p>
-                    <p>{t('Час проведення')}: {dateformat(event.startDate, 'dd.mm.yyyy HH:MM')} - {dateformat(event.finishDate, 'dd.mm.yyyy HH:MM')}</p>
-                    <p>{t('Місце проведення')}: {event.locationCountry + ", " + event.locationCity + ", " + event.locationAddress + " (" + event.locationPlace + ")"}</p>
-                    <div className={styles.counter}>
-                        <p>{t('Загалом відвідувачів на всіх локаціях')}: {counter}</p>
-                    </div>
-                    <h4>{t('Перегляньте статистику за локаціями')}</h4>
-                    <LocationsList eventId={eventId} />
+                <p>{t('Час проведення')}: {dateformat(event.startDate, t("dd.mm.yyyy") + " HH:MM")} - {dateformat(event.finishDate, t("dd.mm.yyyy") + " HH:MM")}</p>
+                <p>{t('Місце проведення')}: {event.locationCountry + ", " + event.locationCity + ", " + event.locationAddress + " (" + event.locationPlace + ")"}</p>
+                <div className={styles.counter}>
+                    <p>{t('Загалом відвідувачів на всіх локаціях')}: {counter}</p>
                 </div>
+                <h4>{t('Перегляньте статистику за локаціями')}</h4>
+                <LocationsList eventId={eventId} />
+                {Date.now() < new Date(event.startDate).valueOf() &&
+                    <h4>{t('або')} <a href={"/review/" + eventId + "/addLocation"}>{t('додайте нову локацію')}</a></h4>}
             </div>
-        )
-    }
+        </div>
+    )
 }
 
 export default ReviewPage;

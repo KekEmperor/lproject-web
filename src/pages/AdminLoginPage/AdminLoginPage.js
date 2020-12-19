@@ -27,7 +27,7 @@ function AdminLoginPage() {
         })
     }
 
-    return isRedirected ? <Redirect to='/adminPanel' /> : (
+    return isRedirected ? <Redirect to='/admin' /> : (
         <div>
             <div className={styles.wrapper}>
                 <p>Увійти до системи як адміністратор</p>

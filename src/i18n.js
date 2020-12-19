@@ -45,12 +45,13 @@ const resources = {
             "Країна проведення": "Country",
             "Місто проведення": "City",
             "Адреса проведення": "Address",
-            "Місце проведення": "Place",
             "Опис": "Description",
             "Надіслати": "Submit",
             "Локацію додано!": "Location was added!",
             "Додавання нової локації на захід": "Location creation",
-            "Тип локації": "Type of the location"
+            "Тип локації": "Type of the location",
+            "dd.mm.yyyy": "mm/dd/yyyy",
+            "dd.mm.yyyy HH:MM": "mm/dd/yyyy HH:MM"
         }
     }
 };
